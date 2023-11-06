@@ -2,7 +2,7 @@ import { loadFromStorage, syncStorage } from "./storage.js";
 import { todoArray } from "./store.js";
 import { renderItem, renderList, clearTextBox, txt_input } from "./dom.js";
 import { addItem } from "./functionality.js";
-import { OnAddItem,onDelSomeItems, onFilter, onSearch } from "./event.js";
+import { OnAddItem, onDelSomeItems, onFilter, onSearch } from "./event.js";
 
 const todoAddress = "https://jsonplaceholder.typicode.com/todos";
 
@@ -22,23 +22,14 @@ const search_btn = document.querySelector("#search-btn");
 //     });
 //   });
 
-// //work with DOM
-
-
-
 //Run app
 function events() {
   save_button.addEventListener("click", OnAddItem);
   del_some_btn.addEventListener("click", onDelSomeItems);
-  search_btn.addEventListener("click", onSearch) ;
-
-  select_items.addEventListener("change", onFilter(event));
- 
-
-
+  search_btn.addEventListener("click", onSearch);
+  select_items.addEventListener("change", onFilter);
 }
 
-    
 function init() {
   loadFromStorage();
   renderList();
